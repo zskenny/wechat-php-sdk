@@ -1,0 +1,22 @@
+{
+    "name": "zskenny/wechat-php-sdk",
+    "description": "WeChat SDK for PHP",
+    "license": "MIT",
+    "keywords": [
+        "wechat", "sdk", "php"
+    ],
+    "authors": [
+        {
+            "name": "zskenny",
+            "email": "zskenny@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "zskenny\\wechat\\": "src"
+        }
+    }
+}
