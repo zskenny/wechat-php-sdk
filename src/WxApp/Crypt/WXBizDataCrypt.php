@@ -1,12 +1,8 @@
 <?php
 
-/**
- * 对微信小程序用户加密数据的解密示例代码.
- *
- * @copyright Copyright (c) 1998-2014 Tencent Inc.
- */
+// 对微信小程序用户加密数据的解密
 
-namespace wechat;
+namespace zskenny\wechat\WxApp\Crypt;
 
 class WXBizDataCrypt
 {
@@ -35,13 +31,13 @@ class WXBizDataCrypt
   public function decryptData($encryptedData, $iv, &$data)
   {
     if (strlen($this->sessionKey) != 24) {
-      return \wechat\ErrorCode::$IllegalAesKey;
+      return ErrorCode::$IllegalAesKey;
     }
     $aesKey = base64_decode($this->sessionKey);
 
 
     if (strlen($iv) != 24) {
-      return \wechat\ErrorCode::$IllegalIv;
+      return ErrorCode::$IllegalIv;
     }
     $aesIV = base64_decode($iv);
 
@@ -51,12 +47,12 @@ class WXBizDataCrypt
 
     $dataObj = json_decode($result);
     if ($dataObj  == NULL) {
-      return \wechat\ErrorCode::$IllegalBuffer;
+      return ErrorCode::$IllegalBuffer;
     }
     if ($dataObj->watermark->appid != $this->appid) {
-      return \wechat\ErrorCode::$IllegalBuffer;
+      return ErrorCode::$IllegalBuffer;
     }
     $data = $result;
-    return \wechat\ErrorCode::$OK;
+    return ErrorCode::$OK;
   }
 }

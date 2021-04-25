@@ -1,5 +1,5 @@
 <?php
-namespace wechat;
+namespace zskenny\wechat\WxApp\Crypt;
 /**
  * error code 说明.
  * <ul>
@@ -19,5 +19,3 @@ class ErrorCode
 	public static $IllegalBuffer = -41003;
 	public static $DecodeBase64Error = -41004;
 }
-
-?>
